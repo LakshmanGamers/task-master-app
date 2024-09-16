@@ -7,6 +7,8 @@ import Priority from './Priority';
 import ProjectDropdown from './ProjectDropDown';
 import TaskInputArea from './TaskInputArea';
 import axios from 'axios';
+
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 function EditTaskModal(props) {
   const [taskData, setTaskData] = useState({
     id : -1,
@@ -36,7 +38,7 @@ function EditTaskModal(props) {
 
   async function saveChangesInDb(data){
      try{
-      const resp = await axios.put(`/api/task/${data.id}`,data);
+      const resp = await axios.put(BASE_URL+`task/${data.id}`,data);
       console.log("Changes saved successfully:", resp);
      }
      catch(err){

@@ -3,6 +3,7 @@ import { GoogleIcon } from './CustomIcons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials = true; // This ensures cookies are sent with requests
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 const SignIn = () => {
     const [fieldData, setFieldData] = useState({ email: "", password: "" });
@@ -28,7 +29,7 @@ const SignIn = () => {
         setError(""); // Clear previous errors
 
         try {
-            const result = await axios.post("/api/login", fieldData);
+            const result = await axios.post(BASE_URL+"login", fieldData);
             if (result.status === 200) {
                 localStorage.setItem("user", fieldData.email);
                 localStorage.setItem("uid", result.data.id);

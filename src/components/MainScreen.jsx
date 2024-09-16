@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import Loader from "./Loading";
 import Error from "./Error";
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 
 const projectContext = createContext();
@@ -40,7 +41,7 @@ export default function MainScreen() {
                 if (!uid) {
                      throw new Error("User ID not found in local storage");
                 }
-                const result = await axios.get(`/api/getdata?userId=${uid}`);
+                const result = await axios.get(BASE_URL+`getdata?userId=${uid}`);
                 // if(result.status === 200) {
                     setDataLoaded(result.data.taskdata);
                 
@@ -65,7 +66,7 @@ export default function MainScreen() {
         const getProjects = async () => {
             try {
                 const uid = localStorage.getItem("uid");
-                const result = await axios.get(`/api/getProjects?userId=${uid}`);
+                const result = await axios.get(BASE_URL+`getProjects?userId=${uid}`);
                 setProjects(result.data.projects);
             } catch (err) {
                 console.error("Error during getting projects:", err);

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 export default function AddProjectModal(props) {
   const [title, setTitle] = React.useState('');
@@ -12,7 +13,7 @@ export default function AddProjectModal(props) {
 
   async function addInDB(data) {
     try {
-      const resp = await axios.post("/api/addProject", data);
+      const resp = await axios.post(BASE_URL+"addProject", data);
     }
     catch (err) {
       console.error("Error during adding project:", err);
