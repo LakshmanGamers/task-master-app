@@ -1,0 +1,134 @@
+
+.task-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 60%;
+    transition: box-shadow 0.3s ease, transform 0.3s ease ;
+}
+
+.task-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+}
+
+.card-checkbox {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #000000;
+    appearance: none; /* Remove default checkbox styles */
+    -webkit-appearance: none; /* Remove default checkbox styles in WebKit browsers */
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .card-checkbox:checked {
+    background-color: #3f50b5; /* Background color when checked */
+    border: 1px solid #3f50b5; /* Optional: border color when checked */
+  }
+  
+  .card-checkbox:checked::before {
+ 
+    display: block;
+    color: white; /* Checkmark color */
+    font-size: 1em; /* Adjust size of the checkmark */
+    text-align: center;
+    line-height: 1.3em; /* Center the checkmark vertically */
+  }
+  
+  
+  
+  .card-content {
+    margin-left: 50px; /* Adjust for checkbox */
+  }
+  
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-head {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #555;
+    margin: 8px 0;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #777;
+}
+
+.footer-item {
+    display: flex;
+    align-items: center;
+}
+
+.footer-item svg {
+    margin-right: 6px;
+}
+
+.icon-container {
+    display: flex;
+    gap: 8px;
+}
+
+.icon {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.edit-icon {
+    color: #007bff;
+}
+
+.edit-icon:hover {
+    color: #0056b3;
+}
+
+.delete-icon {
+    color: #dc3545;
+}
+
+.delete-icon:hover {
+    color: #c82333;
+}
+
+@media (max-width: 768px) {
+    .task-card {
+        width: 100%;
+        margin: 8px;
+    }
+
+    .card-content {
+        margin-left: 40px; /* Adjust for smaller screens */
+    }
+}

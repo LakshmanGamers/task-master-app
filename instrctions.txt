@@ -1,0 +1,6 @@
+Hi Lakshman .. work on an app similar to todoist.com.
+ User should be able to log in, their sessions to be saved unless logged out, 
+ users should be able to drag drop the tasks. The UI should be neat and clean.
+
+
+This app has a lot of features, however you need to focus only on the core features
