@@ -101,7 +101,7 @@ useEffect(()=>{
                 password: fieldData.password,
                 confirmPassword: fieldData.confirmPassword
             }
-            const result = await axios.post("/api/signup", userData);
+            const result = await axios.post("https://render-backend-a89q.onrender.com/signup", userData);
             if (result.data.result) {
                 localStorage.setItem("user", userData.email);
                 localStorage.setItem("uid", result.data.id);
