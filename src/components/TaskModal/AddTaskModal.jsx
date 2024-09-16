@@ -6,6 +6,7 @@ import Priority from './Priority';
 import ProjectDropdown from './ProjectDropDown';
 import TaskInputArea from './TaskInputArea';
 import axios from 'axios';
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 
 function AddTaskModal(props) {
@@ -51,7 +52,7 @@ function AddTaskModal(props) {
 
   async function addInDb(data){
     try{
-    const result = await axios.post("/api/add",data);
+    const result = await axios.post(BASE_URL+"add",data);
     console.log("Task added successfully:", result);
     }
     catch(err){

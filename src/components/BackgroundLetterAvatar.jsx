@@ -11,6 +11,9 @@ import Tooltip from '@mui/material/Tooltip';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import axios from 'axios'
+
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+
 function stringToColor(string) {
     let hash = 0;
     let i;
@@ -43,7 +46,7 @@ function stringToColor(string) {
   async function handleLogout(){
     try{
         console.log
-      await axios.get("/api/logout");
+      await axios.get(BASE_URL+"logout");
       window.location.href = "/";
     }
     catch(err){

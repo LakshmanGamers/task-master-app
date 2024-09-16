@@ -4,6 +4,7 @@ import EditTaskModal from "./TaskModal/EditTaskModal";
 import TaskList from "./TaskList";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import axios from "axios";
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 
 export default function TodoScreen(props) {
@@ -28,7 +29,7 @@ export default function TodoScreen(props) {
   };
   async function deletefromDb(index) {
     try {
-      const resp = await axios.delete(`/api/task/${index}`);
+      const resp = await axios.delete(BASE_URL+`task/${index}`);
       console.log(resp);
     }
     catch (err) {

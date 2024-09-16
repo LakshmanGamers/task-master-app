@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import BackgroundLetterAvatars from './BackgroundLetterAvatar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 export default function MenuAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,7 +25,7 @@ export default function MenuAppBar(props) {
 
   async function handleLogout(){
     try{
-      const resp  = await axios.post("/api/logout");
+      const resp  = await axios.post(BASE_URL+"logout");
       localStorage.removeItem("user");
       localStorage.removeItem("uid");
       setTimeout(()=>{

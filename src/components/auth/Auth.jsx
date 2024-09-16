@@ -4,6 +4,7 @@ import axios from "axios";
 import * as Components from "./Components.jsx"; // Adjust the path if necessary
 axios.defaults.withCredentials  = true;
 import "./Auth.css";
+const BASE_URL = 'https://render-backend-a89q.onrender.com/'
 
 export default function Auth() {
     const [error, setError] = useState(""); 
@@ -49,7 +50,7 @@ useEffect(()=>{
                 email: fieldData.email,
                 password: fieldData.password
             }
-            const result = await axios.post("/api/login", userData);
+            const result = await axios.post(BASE_URL+"login", userData);
             console.log(result);
             
             if (result.status === 200) {
@@ -101,7 +102,7 @@ useEffect(()=>{
                 password: fieldData.password,
                 confirmPassword: fieldData.confirmPassword
             }
-            const result = await axios.post("/api/signup", userData);
+            const result = await axios.post(BASE_URL+'/signup', userData);
             if (result.data.result) {
                 localStorage.setItem("user", userData.email);
                 localStorage.setItem("uid", result.data.id);
