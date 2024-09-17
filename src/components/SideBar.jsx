@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState ,useMemo } from 'react';
 import { Button, Drawer, IconButton, Box, Typography, useTheme, useMediaQuery ,List , ListItem ,ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import TodoScreen from './TodoScreen';
@@ -58,18 +58,20 @@ const SideBar = (props) => {
 
   const [groupByProjects , setgroupByProjects] = useState([]);
   
-
-  useEffect(()=>{
-    const result = props.data.reduce((acc,item)=>{
-      if(!acc[item.project]){
+  const groupedByProjects = useMemo(() => {
+    return props.data.reduce((acc, item) => {
+      if (!acc[item.project]) {
         acc[item.project] = [];
       }
       acc[item.project].push(item);
       return acc;
-    },{});
-    //console.log(groupByProjects);
-    setgroupByProjects(result);
-  },[ props.data]);
+    }, {});
+  }, [props.data]);
+
+  useEffect(()=>{
+    setgroupByProjects(groupedByProjects);
+
+  },[groupedByProjects]);
   
  
 

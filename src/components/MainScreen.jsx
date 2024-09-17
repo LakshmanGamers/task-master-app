@@ -23,7 +23,7 @@ const theme = createTheme({
       dark: '#002884'
       }}});
 export default function MainScreen() {
-    const [dataLoaded, setDataLoaded] = useState(null);
+    const [dataLoaded, setDataLoaded] = useState([]);
     const [dataLoading, setDataLoading] = useState(true);
     const [projectLoading, setProjectLoading] = useState(true);
     const [error, setError] = useState(null);
