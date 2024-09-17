@@ -108,7 +108,7 @@
                     password: fieldData.password,
                     confirmPassword: fieldData.confirmPassword
                 }
-                const result = await axios.post("https://render-backend-a89q.onrender.com/signup", userData ,{
+                const result = await axios.post(BASE_URL+"signup", userData ,{
                     withCredentials: true,
                     headers: {
                         'Access-Control-Allow-Origin': '*', 
