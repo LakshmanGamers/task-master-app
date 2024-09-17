@@ -4,7 +4,7 @@
     import * as Components from "./Components.jsx"; // Adjust the path if necessary
     axios.defaults.withCredentials  = true;
     import "./Auth.css";
-    const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
+    const BASE_URL = 'https://render-backend-ngn1.onrender.com/'
 
     export default function Auth() {
         const [error, setError] = useState(""); 

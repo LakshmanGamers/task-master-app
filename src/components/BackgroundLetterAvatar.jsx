@@ -12,7 +12,7 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import axios from 'axios'
 
-const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
+const BASE_URL = 'https://render-backend-ngn1.onrender.com/'
 
 function stringToColor(string) {
     let hash = 0;
