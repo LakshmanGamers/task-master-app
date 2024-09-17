@@ -4,10 +4,10 @@ export default function DateForEdit(props){
     const [inputType, setInputType] = useState('text');
     const [dateval , setDateVal]  = useState("");
     
-console.log(dateval);
+//console.log(dateval);
     function formatDateToYYYYMMDD(dateString) {
       const res = dateString.split('T')[0];
-      console.log(res);
+      //console.log(res);
       return res;
     }
     

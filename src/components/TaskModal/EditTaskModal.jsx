@@ -21,10 +21,10 @@ function EditTaskModal(props) {
     project: ""
   });
   useEffect(() => {
-    console.log(props.tasks  , props.index);
+    //console.log(props.tasks  , props.index);
     if (props.tasks && props.index ) {
       var resObj = props.tasks.find((item) => item.id === props.index);
-      console.log(resObj);
+      //console.log(resObj);
         setTaskData(resObj);
     }
 }, [props.tasks, props.index]);
@@ -39,7 +39,7 @@ function EditTaskModal(props) {
   async function saveChangesInDb(data){
      try{
       const resp = await axios.put(BASE_URL+`task/${data.id}`,data);
-      console.log("Changes saved successfully:", resp);
+      //console.log("Changes saved successfully:", resp);
      }
      catch(err){
       console.error("Error during saving changes:", err);
@@ -50,7 +50,7 @@ function EditTaskModal(props) {
 
   function handleSubmit(event) {
     event.preventDefault(); 
-    console.log(taskData);
+    //console.log(taskData);
 
     const uid = localStorage.getItem("uid");
     const newData = {...taskData , userId : uid   };

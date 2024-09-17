@@ -33,7 +33,7 @@ export default function MenuAppBar(props) {
       },1000);
     }
     catch(err){
-      console.log("Error logging out:",err);
+      //console.log("Error logging out:",err);
     }
   }
   return (

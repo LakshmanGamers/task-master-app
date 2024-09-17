@@ -12,8 +12,8 @@ export default function TodoScreen(props) {
   const [taskItems, setTaskItems] = useState([]);
   useEffect(() => {
 
-    console.log(props.data);
-    console.log(taskItems);
+    //console.log(props.data);
+    //console.log(taskItems);
     if (props.project) {
       setTaskItems(props.data[props.project]);
       
@@ -30,7 +30,7 @@ export default function TodoScreen(props) {
   async function deletefromDb(index) {
     try {
       const resp = await axios.delete(BASE_URL+`task/${index}`);
-      console.log(resp);
+      //console.log(resp);
     }
     catch (err) {
       console.error("Error during deleting task:", err);
@@ -38,7 +38,7 @@ export default function TodoScreen(props) {
   }
 
   function addItem(task) {
-    console.log(taskItems , task);
+    //console.log(taskItems , task);
 
     var newList ; 
     if(!(taskItems)){
@@ -61,7 +61,7 @@ export default function TodoScreen(props) {
     });
   }
   function deleteItem(index) {
-    // console.log(taskItems , index);
+    // //console.log(taskItems , index);
     const newList = [...taskItems];
      const list = newList.filter(item => item.id !== index);
         deletefromDb(index);

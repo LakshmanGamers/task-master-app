@@ -39,7 +39,7 @@ const SignUp = () => {
         }
 
         try {
-            console.log(fieldData)
+            //console.log(fieldData)
             const result = await axios.post(BASE_URL+"signup", fieldData);
             if (result.data.result) {
                 localStorage.setItem("user", fieldData.email);

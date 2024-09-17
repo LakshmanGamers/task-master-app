@@ -6,7 +6,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import './card-style.css';
 const Card = ({ item, index, onEdit, onDelete }) => {
     const [hover, setHover] = useState(false);
-    console.log(item);
+    //console.log(item);
     
     const formatDate = (date) => {
         const options = { day: 'numeric', month: 'short' };
@@ -26,7 +26,7 @@ const Card = ({ item, index, onEdit, onDelete }) => {
     };
     
 
-    // console.log(item)
+    // //console.log(item)
     return (
         <>
             {/* {hover && <div className="drag-handle">

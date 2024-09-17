@@ -15,7 +15,7 @@ const SideBar = (props) => {
  const {projects , addProject} = useContext(projectContext);
 
   
-  console.log(props.data);
+  //console.log(props.data);
   const data = [
     {
       id : 1,
@@ -67,7 +67,7 @@ const SideBar = (props) => {
       acc[item.project].push(item);
       return acc;
     },{});
-    console.log(groupByProjects);
+    //console.log(groupByProjects);
     setgroupByProjects(result);
   },[ props.data]);
   
@@ -86,7 +86,7 @@ const SideBar = (props) => {
     const resultObj = Object.values(projects).find(obj => obj.id === id);
 
     setCurrProject(resultObj.name);
-    console.log("curr project changed to "+ resultObj.name );
+    //console.log("curr project changed to "+ resultObj.name );
   }
   
   const [show ,setShow] = useState(false);
@@ -94,7 +94,7 @@ const SideBar = (props) => {
   const handleShow = () => setShow(true);
   
   const drawerWidth = 320;
-console.log(currProject , groupByProjects )
+//console.log(currProject , groupByProjects )
   return (
     
     <Box sx={{ display: 'flex', // Changed from 'relative' to 'fixed' to ensure proper stacking

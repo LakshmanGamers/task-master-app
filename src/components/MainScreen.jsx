@@ -41,7 +41,13 @@ export default function MainScreen() {
                 if (!uid) {
                      throw new Error("User ID not found in local storage");
                 }
-                const result = await axios.get(BASE_URL+`getdata?userId=${uid}`);
+                const result = await axios.get(BASE_URL+`getdata?userId=${uid}`,{
+                    withCredentials: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*', 
+                        'Content-Type': 'application/json'
+                    }
+                });
                 // if(result.status === 200) {
                     setDataLoaded(result.data.taskdata);
                 
@@ -66,7 +72,13 @@ export default function MainScreen() {
         const getProjects = async () => {
             try {
                 const uid = localStorage.getItem("uid");
-                const result = await axios.get(BASE_URL+`getProjects?userId=${uid}`);
+                const result = await axios.get(BASE_URL+`getProjects?userId=${uid}`,{
+                    withCredentials: true,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*', 
+                        'Content-Type': 'application/json'
+                    }
+                });
                 setProjects(result.data.projects);
             } catch (err) {
                 console.error("Error during getting projects:", err);
@@ -79,7 +91,7 @@ export default function MainScreen() {
         getProjects();
     }, []);
 
-   console.log("Main"+dataLoaded , projects)
+   //console.log("Main"+dataLoaded , projects)
     return (
         <>
             {dataLoading && projectLoading ? (

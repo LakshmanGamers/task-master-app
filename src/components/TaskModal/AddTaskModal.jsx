@@ -53,7 +53,7 @@ function AddTaskModal(props) {
   async function addInDb(data){
     try{
     const result = await axios.post(BASE_URL+"add",data);
-    console.log("Task added successfully:", result);
+    //console.log("Task added successfully:", result);
     }
     catch(err){
     
@@ -78,7 +78,7 @@ function AddTaskModal(props) {
     //   alert("Please enter all fields");
     //   return;
     // }
-    console.log("Task submitted successfully:", newData);
+    //console.log("Task submitted successfully:", newData);
    
     addInDb(newData);
     props.onAdd(newData);

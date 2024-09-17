@@ -19,7 +19,7 @@ const SideBar = (props) => {
     setOpen(!open);
   };
 
-  console.log(props.data);
+  //console.log(props.data);
   const data = [
     {
       id : 1,
@@ -71,7 +71,7 @@ const SideBar = (props) => {
       acc[item.project].push(item);
       return acc;
     },{});
-    console.log(groupByProjects);
+    //console.log(groupByProjects);
     setgroupByProjects(result);
   },[ props.data]);
   

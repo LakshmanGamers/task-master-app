@@ -45,12 +45,12 @@ function stringToColor(string) {
 
   async function handleLogout(){
     try{
-        console.log
+        //console.log
       await axios.get(BASE_URL+"logout");
       window.location.href = "/";
     }
     catch(err){
-      console.log("Error logging out:",err);
+      //console.log("Error logging out:",err);
     }
   }
 export default function AccountMenu() {
