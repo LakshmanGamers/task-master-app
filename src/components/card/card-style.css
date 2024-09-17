@@ -70,7 +70,8 @@
     color: #333;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: break-word;
+
 }
 
 .card-description {
@@ -130,5 +131,35 @@
 
     .card-content {
         margin-left: 40px; /* Adjust for smaller screens */
+    }
+}
+
+/* Adjustments for tablets and smaller devices */
+@media (max-width: 768px) {
+    .card-head {
+        font-size: 1.25rem; /* Slightly smaller for tablets and small screens */
+    }
+
+    .card-description {
+        font-size: 0.95rem; /* Reduce size slightly for readability */
+    }
+
+    .card-footer {
+        font-size: 0.85rem; /* Slightly smaller for the footer text */
+    }
+}
+
+/* Further adjustments for small mobile devices */
+@media (max-width: 480px) {
+    .card-head {
+        font-size: 1.15rem; /* Smaller for mobile phones */
+    }
+
+    .card-description {
+        font-size: 0.85rem; /* Ensure readability on small screens */
+    }
+
+    .card-footer {
+        font-size: 0.8rem; /* Further reduction for mobile phones */
     }
 }

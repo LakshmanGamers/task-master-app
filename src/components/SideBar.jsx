@@ -91,7 +91,12 @@ const SideBar = (props) => {
   
   const [show ,setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // const handleShow = () => setShow(true);
+
+  function handleShow(){
+    setShow(true);  
+    props.onOpen(false);
+  }
   
   const drawerWidth = 320;
 //console.log(currProject , groupByProjects )
@@ -110,7 +115,7 @@ const SideBar = (props) => {
           position : 'fixed',
           top : 64,
           height : "100vh",
-          width: props.open ? drawerWidth : 0,
+          width: props.open ? ((isMobile)? 0 :  drawerWidth) : 0,
           flexShrink: 0,
           zIndex: theme.zIndex.appBar - 1, // Ensures the Drawer is below the AppBar
           '& .MuiDrawer-paper': {
