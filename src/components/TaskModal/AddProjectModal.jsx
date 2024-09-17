@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 
 export default function AddProjectModal(props) {
   const [title, setTitle] = React.useState('');

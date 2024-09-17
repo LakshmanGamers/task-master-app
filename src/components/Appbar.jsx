@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import BackgroundLetterAvatars from './BackgroundLetterAvatar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 
 export default function MenuAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);

@@ -9,7 +9,7 @@ import { ThemeProvider } from "@mui/material";
 import { createTheme } from '@mui/material/styles';
 import Loader from "./Loading";
 import Error from "./Error";
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 
 
 const projectContext = createContext();

@@ -4,7 +4,7 @@ import EditTaskModal from "./TaskModal/EditTaskModal";
 import TaskList from "./TaskList";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import axios from "axios";
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 
 
 export default function TodoScreen(props) {

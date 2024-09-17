@@ -3,7 +3,7 @@ import { GoogleIcon } from './CustomIcons';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials = true; // This ensures cookies are sent with requests
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 
 const SignUp = () => {
     const [fieldData, setFieldData] = useState({

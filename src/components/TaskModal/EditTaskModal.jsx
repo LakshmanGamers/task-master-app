@@ -8,7 +8,7 @@ import ProjectDropdown from './ProjectDropDown';
 import TaskInputArea from './TaskInputArea';
 import axios from 'axios';
 
-const BASE_URL = 'https://render-backend-a89q.onrender.com/'
+const BASE_URL = 'https://task-master-app-24w9.onrender.com/'
 function EditTaskModal(props) {
   const [taskData, setTaskData] = useState({
     id : -1,
