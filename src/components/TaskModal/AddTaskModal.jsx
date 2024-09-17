@@ -22,6 +22,12 @@ function AddTaskModal(props) {
   });
   const [error, setError] = useState("");
 
+  const [head , sethead] = useState(false);
+  const [description, setDescription] = useState(false);
+  const [dates , setdates] = useState(false);
+  const [priorityError, setPriorityError] = useState(false);
+  const [projectError, setProjectError] = useState(false);
+
   const validate = (taskData) => {
     if (
       !taskData.heading ||
@@ -62,7 +68,7 @@ function AddTaskModal(props) {
   function handleSubmit(event) {
     
     event.preventDefault(); 
-
+ 
     
     const uid = localStorage.getItem("uid");
     const newData = {...taskData , userId : uid   };
@@ -79,7 +85,9 @@ function AddTaskModal(props) {
     //   return;
     // }
     //console.log("Task submitted successfully:", newData);
-   
+   if(!validate(newData)){
+    return;
+   }
     addInDb(newData);
     props.onAdd(newData);
 
@@ -124,8 +132,12 @@ function AddTaskModal(props) {
             <Priority value={taskData.priority} onChange={handleChange} />
           </div>
         </div>
+        <div style={{margin: '1rem'}}>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        </div>
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-between">
+
         <ProjectDropdown  value={taskData.project} onChange={handleChange} />
         <div  >
           <Button variant="secondary" onClick={props.onClose} style={{ marginRight: "4px" }}>
