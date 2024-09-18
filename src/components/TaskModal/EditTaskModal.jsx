@@ -14,22 +14,27 @@ function EditTaskModal(props) {
     id : -1,
     heading: "",
     description: "",
-    duedate: "",
+    duedate: "Due Date",
     priority: "",
     completed: false,
     userId: -1,
     project: ""
   });
   useEffect(() => {
-    //console.log(props.tasks  , props.index);
+    // console.log(props.tasks  , props.index);
     if (props.tasks && props.index ) {
       var resObj = props.tasks.find((item) => item.id === props.index);
-      //console.log(resObj);
-        setTaskData(resObj);
+
+      const dateval = resObj.duedate.split('T')[0];
+      const newObj = {...resObj, duedate: dateval}
+
+      // console.log(newObj);
+        setTaskData(newObj);
     }
 }, [props.tasks, props.index]);
   function handleChange(event) {
     const { name, value } = event.target;
+    // console.log(taskData);
     setTaskData((prev) => ({
       ...prev,
       [name]: value
@@ -56,7 +61,7 @@ function EditTaskModal(props) {
     const newData = {...taskData , userId : uid   };
 
     saveChangesInDb(newData);
-
+    // console.log(newData)
     props.onSave((prevItems)=>
     prevItems.map((item,inx)=> item.id===props.index ? {...newData} : item));
     setTaskData({
@@ -93,7 +98,7 @@ function EditTaskModal(props) {
         <TaskInputArea name="description" placeholder="Description" value={taskData.description} onChange={handleChange}  />
         <div style={{ marginTop: '1rem', display: 'flex', flexDirection: "column" }}>
           <div >
-            <DateForEdit value={taskData.duedate} type='date' onChange={handleChange} />
+            <DateForEdit value={taskData.duedate} onRender={setTaskData} onChange={handleChange} />
             <Priority value={taskData.priority} onChange={handleChange} />
 
 

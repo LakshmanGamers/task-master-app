@@ -11,21 +11,29 @@ export default function DateForEdit(props){
       return res;
     }
     
-    useEffect(()=>{
-      setDateVal(props.value);
-      if(props.value == "date"){
-        setInputType('date');
-       const result =  formatDateToYYYYMMDD(props.value);
-        setDateVal(result);
-      }
-    },[props.value]);
+
+    // useEffect(()=>{
+      
+    //     const result =  formatDateToYYYYMMDD(props.value);
+    //    props.onRender((prev)=>{
+    //       return {...prev, duedate : result}
+    //     })
+    // },[props.value])
+    // useEffect(()=>{
+      
+    //    const result =  formatDateToYYYYMMDD(props.value);
+      
+
+    //     setDateVal(result);
+      
+    // },[props.value]);
     const handleFocus = () => {
         setInputType('date');
       };
    
     return (
         <>
-         <input type="date"  name='duedate' onFocus={handleFocus} value={dateval} onChange={props.onChange} style={{ marginRight : "10px"}}/>
+         <input type="date"  name='duedate' onFocus={handleFocus} value={props.value} onChange={props.onChange} style={{ marginRight : "10px"}}/>
         </>
     )
 }
