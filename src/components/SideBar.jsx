@@ -58,8 +58,10 @@ const SideBar = (props) => {
 
   const [groupByProjects , setgroupByProjects] = useState([]);
   
+  const [ currProject , setCurrProject ] = useState("Inbox");
 
   useEffect(()=>{
+   
     const result = props.data.reduce((acc,item)=>{
       if(!acc[item.project]){
         acc[item.project] = [];
@@ -71,12 +73,17 @@ const SideBar = (props) => {
     setgroupByProjects(result);
   },[ props.data]);
   
+  useEffect(()=>{
+    const proj = localStorage.getItem("cproj");
+    if(proj) setCurrProject(proj);
+    else 
+    localStorage.setItem("cproj","Inbox");
+  },[])
  
 
 
 
 
-  const [ currProject , setCurrProject ] = useState("Inbox");
   // const {project} = useParams();
  
   
@@ -84,8 +91,11 @@ const SideBar = (props) => {
     // navigate(`/app/${currProject}`);
     // setCurrProject(projects[index].name);
     const resultObj = Object.values(projects).find(obj => obj.id === id);
-
+  
     setCurrProject(resultObj.name);
+    // console.log(resultObj.name);
+    
+    localStorage.setItem('cproj', resultObj.name);
     //console.log("curr project changed to "+ resultObj.name );
   }
   

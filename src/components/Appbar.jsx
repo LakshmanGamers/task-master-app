@@ -28,6 +28,7 @@ export default function MenuAppBar(props) {
       const resp  = await axios.post(BASE_URL+"logout");
       localStorage.removeItem("user");
       localStorage.removeItem("uid");
+      localStorage.removeItem('cproj');
       setTimeout(()=>{
         navigate("/")
       },1000);
