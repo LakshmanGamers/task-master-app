@@ -223,7 +223,7 @@ const BoardsScreen = ({ data, boardName , onChange }) => {
 
       updateboard(boardData);
       onChange({...data , 
-        [state._id] : boarddata}
+        [state._id] : boardData}
         )
       return;
     }
@@ -258,7 +258,7 @@ const BoardsScreen = ({ data, boardName , onChange }) => {
 
       updateboard(boardData);
       onChange({...data , 
-        [state._id] : boarddata}
+        [state._id] : boardData}
         )
       return;
     }
@@ -291,7 +291,7 @@ const BoardsScreen = ({ data, boardName , onChange }) => {
     }
 
     onChange({...data , 
-      [state._id] : boarddata}
+      [state._id] : boardData}
       )
     updateboard(boardData);
   };

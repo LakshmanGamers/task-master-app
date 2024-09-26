@@ -10,11 +10,11 @@ import { TaskContext } from '../BoardsScreen';
 const TaskCard = styled(Card)(({ theme }) => ({
   marginBottom: theme.spacing(2),
   cursor: 'grab',
-  boxShadow: '0 2px 10px rgba(0, 0, 0, 0.12)',
+  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.12)',
   transition: 'transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
   '&:hover': {
     transform: 'translateY(-2px)',
-    boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+    boxShadow: '0 6px 16px rgba(0, 0, 0, 0.15)',
   },
   borderRadius: '12px',
   padding: theme.spacing(1),

@@ -81,13 +81,13 @@ const SideBar = (props) => {
         }))
         setBoardItems(obj);
         const resultObj = obj.find(obj => obj.name === 'Home');
-        console.log(resultObj);
-        setCurrBoard(resultObj.id)
+      
         const proj = localStorage.getItem("cboard");
         if (proj) setCurrBoard(proj);
         setBoardLoaded(true)
       }
     } catch (err) {
+      setCurrCategory(false);
       console.error("Error fetching boards", err);
     }
   };
