@@ -1,0 +1,5 @@
+.taskscontainer{
+    display: flex;
+    flex-direction: row;
+}
+

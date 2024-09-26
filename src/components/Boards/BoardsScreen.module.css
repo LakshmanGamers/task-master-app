@@ -1,0 +1,22 @@
+/* src/App.css */
+.board {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.column {
+  background-color: #f4f5f7;
+  padding: 16px;
+  border-radius: 5px;
+  width: 250px;
+}
+
+h2 {
+  text-align: center;
+}
+
+body{
+  height: 100%;
+}

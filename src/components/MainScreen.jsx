@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SideBar from './SideBar';
+import SideBarBoards from "./Boards/SideBarBoards";
 import { createContext } from "react";
 import MenuAppBar from "./Appbar";
 import '../App.css'
@@ -94,6 +95,10 @@ export default function MainScreen() {
    //console.log("Main"+dataLoaded , projects)
     return (
         <>
+
+
+
+        
             {dataLoading && projectLoading ? (
                 <Loader/>
             ) : error ? (
@@ -102,7 +107,9 @@ export default function MainScreen() {
             <ThemeProvider theme ={theme}>
               <projectContext.Provider value={{projects , addProject}}>
                  <MenuAppBar onOpen={setOpen} />
-                <SideBar onOpen={setOpen} open={open} data={dataLoaded}  />
+                <SideBar onOpen={setOpen} open={open} data={dataLoaded} listLoadStatus={dataLoading} />
+
+                {/* <SideBarBoards onOpen={setOpen} open={open}/> */}
              </projectContext.Provider>
              </ThemeProvider>
             )}
