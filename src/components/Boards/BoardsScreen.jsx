@@ -126,6 +126,52 @@ const BoardsScreen = ({ data, boardName , onChange }) => {
     setEditMode(true);
   }
 
+  function editColTitle(colId , newTitle){
+  
+     const currColObj = state.columns[colId];
+     currColObj.title = newTitle;
+
+    const newObj = {
+      ...state,
+      columns : {
+        ...state.columns,
+        [colId]: currColObj
+      }
+    }
+
+    setState(newObj);
+
+    onChange({...data , 
+      [state._id] :  newObj}
+      )
+    updateboard(newObj);
+      console.log(newObj);
+
+  }
+
+  function deleteColumn(colId) {
+    const { [colId]: removed, ...remainingColumns } = state.columns;
+    const newcolumnOrder = state.columnOrder;
+    const inx= newcolumnOrder.findIndex(obj => obj === colId);
+    if(inx!==-1){
+      newcolumnOrder.splice(inx, 1);
+    }
+
+    const newObj = {
+      ...state,
+      columns: remainingColumns,
+      columnOrder : newcolumnOrder
+    };
+  
+    setState(newObj);
+    onChange({...data , 
+      [state._id] :  newObj}
+      )
+    updateboard(newObj);
+   
+    console.log(newObj);
+  }
+  
   
 
   // Function to handle task deletion
@@ -298,7 +344,7 @@ const BoardsScreen = ({ data, boardName , onChange }) => {
 
   // Render component
   return (
-    <TaskContext.Provider value={{ state, setState, editMode, setEditMode, editData, setEditData, onEdit, onDelete }}>
+    <TaskContext.Provider value={{ state, setState, editMode, setEditMode, editData, setEditData, onEdit, onDelete , editColTitle , deleteColumn    }}>
 
     <BoardTitle title = {state.title} onTitleChange={updateboard}/>
       <DragDropContext onDragStart={handleDragStart} onDragEnd={onDragEnd}>

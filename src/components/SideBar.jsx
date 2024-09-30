@@ -69,8 +69,9 @@ const SideBar = (props) => {
     try {
       const uid = localStorage.getItem("uid");
       const response = await axios.get(BASE_URL + `getUsers/${uid}`);
+      console.log(response.data);
       if (response.status === 200) {
-        const reducedData = response.data.reduce((acc, item) => {
+        const reducedData = response.data.data.reduce((acc, item) => {
           acc[item._id] = item;
           return acc;
         }, {});
@@ -80,10 +81,12 @@ const SideBar = (props) => {
           name: board.name,
         }))
         setBoardItems(obj);
-        const resultObj = obj.find(obj => obj.name === 'Home');
+        
       
         const proj = localStorage.getItem("cboard");
         if (proj) setCurrBoard(proj);
+        else setCurrBoard(response.data.homeId);
+        
         setBoardLoaded(true)
       }
     } catch (err) {
@@ -96,6 +99,7 @@ const SideBar = (props) => {
     fetchBoards();
     console.log("Iam Called");
   }, []);
+
 
   
 

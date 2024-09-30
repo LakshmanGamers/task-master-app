@@ -26,8 +26,7 @@ export default function HomeScreen() {
           <Link to="/auth/signup">
             <button
               className={isButtonHovered ? styles.contentButtonHover : styles.contentButton}
-              onMouseEnter={() => setButtonHovered(true)}
-              onMouseLeave={() => setButtonHovered(false)}
+              
             >
               Start Organizing
             </button>

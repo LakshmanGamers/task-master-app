@@ -29,6 +29,7 @@ export default function MenuAppBar(props) {
       localStorage.removeItem("user");
       localStorage.removeItem("uid");
       localStorage.removeItem('cproj');
+      localStorage.removeItem('cboard')
       setTimeout(()=>{
         navigate("/")
       },1000);

@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState  } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 import { Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import Task from './Task';
 import EditTaskModal from './EditTaskModal';
 import { TaskContext } from '../BoardsScreen';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import FadeMenu from './ColumnDropdown';
+import ColHead from './ColHead';
+
 
 const ColumnContainer = styled('div')(({ theme }) => ({
   minWidth: 300,
@@ -26,15 +30,50 @@ const ColumnHeader = styled(Typography)(({ theme }) => ({
   color: theme.palette.text.primary,
   marginBottom: theme.spacing(2),
 
+  display: 'flex',
+  justifyContent:'space-between'
+
 }));
+
+// const [hover ,setHover]
 
 const Column = ({ column, tasks }) => {
   const { editData, setEditData, editMode } = useContext(TaskContext);
 
+  const [onEditcol ,setEditCol] = useState(false);
+
   return (
     <>
-      <ColumnHeader variant="h6" gutterBottom sx={{fontSize : "16px" , fontWeight : "bold"}}>
-        {column.title} <p style={{display: "inline" , fontWeight : "lighter" ,color : "gray"}}> {tasks.length ? tasks.length : 0} </p>
+      <ColumnHeader variant="h6" gutterBottom sx={{fontSize : "16px" , fontWeight : "bold" , marginLeft : "20px"}}>
+      
+      {/* {
+        onEditcol && (
+          <EditTaskModal
+            id={column.id}
+            title={column.title}
+            setEditCol={setEditCol}
+          />
+        )
+      }
+
+      {
+        !onEditcol && (
+          <div >
+          {column.title} <p style={{display: "inline" , fontWeight : "lighter" ,color : "gray"}}> {tasks.length ? tasks.length : 0} </p>
+          </div>
+        )
+      }
+       
+      {
+        !onEditcol && (
+        <div  >
+        <FadeMenu colId={column.id} oldTitle={column.title} onEdit={setEditCol} />
+        </div>
+        )
+
+      } */}
+        
+        <ColHead column={column} tasks={tasks} />
         
       </ColumnHeader>
 
